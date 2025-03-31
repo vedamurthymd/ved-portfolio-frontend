@@ -1,5 +1,4 @@
 import {
-  AppBar,
   Toolbar,
   Typography,
   Button,
@@ -10,7 +9,6 @@ import {
   ListItemButton,
   ListItemText,
   Stack,
-  Container,
   Box,
   useTheme,
   useMediaQuery,
@@ -19,6 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { useState } from "react";
+import ElevateAppBar from "../ElevateAppBar";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -36,7 +35,6 @@ const Navbar = ({ mode, toggleColorMode }: NavbarProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const toggleDrawer = (open: boolean) => () => {
     setDrawerOpen(open);
   };
@@ -48,33 +46,34 @@ const Navbar = ({ mode, toggleColorMode }: NavbarProps) => {
 
   return (
     <>
-      <AppBar position="fixed" color="transparent" elevation={0}>
-        <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-            {/* Logo */}
-            <Typography
-              variant="h6"
-              onClick={() => navigate("/")}
-              sx={{
-                cursor: "pointer",
-                fontWeight: "bold",
-                color: "primary.main",
-              }}
-            >
-              Ved.deV
-            </Typography>
+      <ElevateAppBar>
+        {/* <Container maxWidth="lg"> */}
+        <Toolbar disableGutters sx={{ justifyContent: "space-around" }}>
+          {/* Logo */}
+          <Typography
+            variant="h6"
+            onClick={() => navigate("/")}
+            sx={{
+              cursor: "pointer",
+              fontWeight: "bold",
+              color: "primary.main",
+            }}
+          >
+            Ved.deV
+          </Typography>
 
-            {isMobile ? (
-              <>
-                <IconButton
-                  edge="end"
-                  color="inherit"
-                  onClick={toggleDrawer(true)}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </>
-            ) : (
+          {isMobile ? (
+            <>
+              <IconButton
+                edge="end"
+                color="inherit"
+                onClick={toggleDrawer(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            </>
+          ) : (
+            <>
               <Stack direction="row" spacing={3} alignItems="center">
                 {navLinks.map((link) => (
                   <Button
@@ -92,14 +91,16 @@ const Navbar = ({ mode, toggleColorMode }: NavbarProps) => {
                 >
                   Hire Me
                 </Button>
-                <IconButton onClick={toggleColorMode} color="inherit">
-                  {mode === "dark" ? <Brightness7 /> : <Brightness4 />}
-                </IconButton>
               </Stack>
-            )}
-          </Toolbar>
-        </Container>
-      </AppBar>
+
+              <IconButton onClick={toggleColorMode} color="inherit">
+                {mode === "dark" ? <Brightness7 /> : <Brightness4 />}
+              </IconButton>
+            </>
+          )}
+        </Toolbar>
+        {/* </Container> */}
+      </ElevateAppBar>
 
       {/* Drawer for Mobile */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>

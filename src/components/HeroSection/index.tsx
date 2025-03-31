@@ -1,7 +1,9 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import { ReactTyped } from "react-typed";
 
 const HeroSection = () => {
+  const theme = useTheme();
+  const isLight = theme.palette.mode === "light";
   return (
     <Box
       sx={{
@@ -11,6 +13,9 @@ const HeroSection = () => {
         justifyContent: "center",
         textAlign: "center",
         px: 2,
+        background: isLight
+          ? "linear-gradient(to right,rgb(235, 242, 247),rgb(192, 214, 239))"
+          : "linear-gradient(to right, #232526, #414345)",
       }}
     >
       <Stack direction="column">

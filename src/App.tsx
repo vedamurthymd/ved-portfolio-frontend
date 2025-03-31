@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import "./App.css";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AppRouter from "./routes/Router";
@@ -20,7 +20,13 @@ function App() {
 
       <BrowserRouter>
         <Navbar mode={mode} toggleColorMode={toggleColorMode} />
-        <AppRouter />
+        <Box
+          sx={{
+            pt: { xs: "56px", md: "64px" }, // push content below AppBar height
+          }}
+        >
+          <AppRouter />
+        </Box>
       </BrowserRouter>
     </ThemeProvider>
   );
