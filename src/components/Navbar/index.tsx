@@ -61,7 +61,7 @@ const Navbar = ({ mode, toggleColorMode }: NavbarProps) => {
                 color: "primary.main",
               }}
             >
-              Ved.dev
+              Ved.deV
             </Typography>
 
             {isMobile ? (
