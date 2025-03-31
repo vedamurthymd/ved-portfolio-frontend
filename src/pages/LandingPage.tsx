@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import HeroSection from "@ved-portfolio/components/HeroSection";
 import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
 
 const LandingPage = () => {
   return (

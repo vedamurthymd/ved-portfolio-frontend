@@ -1,11 +1,10 @@
 import { useMemo, useState } from "react";
 import "./App.css";
-import { CssBaseline, IconButton, ThemeProvider } from "@mui/material";
-import { Brightness4, Brightness7 } from "@mui/icons-material";
-import getTheme from "@ved-portfolio/theme/theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
-import AppRouter from "@ved-portfolio/routes/Router";
 import Navbar from "./components/Navbar";
+import AppRouter from "./routes/Router";
+import getTheme from "./theme/theme";
 
 function App() {
   const [mode, setMode] = useState<"light" | "dark">("light");

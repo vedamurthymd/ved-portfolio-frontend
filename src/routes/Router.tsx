@@ -1,6 +1,6 @@
 // src/routes/Router.tsx
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "@ved-portfolio/pages/LandingPage";
+import LandingPage from "../pages/LandingPage";
 // import Home from "@ved-portfolio/pages/Home";
 // import About from "@ved-portfolio/pages/About";
 // import Projects from "@ved-portfolio/pages/Projects";
